@@ -1,9 +1,9 @@
 {
-    "name": "CalendarioEvea",
+    "name": "7 Busca Proxys",
     "env": {
         "TELEGRAM_TOKEN": {
             "description": "el token del bot de telegram que te da https://t.me/BotFather",
-            "value": "5389979475:AAFhxmJVSwt4dNJCBDl2fTZmwFz_3QjkdOI"
+            "value": "5205765255:AAE9LW0N8wbfB_AvuFHY30oNQo4h8WwlPPA"
         }
     }
 }
