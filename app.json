@@ -1,10 +1,10 @@
 ﻿{
-  "name": "BotuploadFree 7.1",
-  "description": "BotuploadFree bot listo y preparado para subir a las nubes de cuba.",
+  "name": "SuperDownload 1.0 PlusEdition🌟",
+  "description": "SuperDownload bot listo y preparado para subir a las nubes de cuba.",
   "env": {
     "administrador": {
       "description": "Admin del bot",
-      "value": ""
+      "value": "Luis_Daniel_Diaz"
     },
     "bot_token": {
       "description": "El token del bot",
