@@ -1,9 +1,19 @@
-{
-    "name": "7 Busca Proxys",
-    "env": {
-        "TELEGRAM_TOKEN": {
-            "description": "el token del bot de telegram que te da https://t.me/BotFather",
-            "value": "5205765255:AAE9LW0N8wbfB_AvuFHY30oNQo4h8WwlPPA"
-        }
+﻿{
+  "name": "BotuploadFree 7.1",
+  "description": "BotuploadFree bot listo y preparado para subir a las nubes de cuba.",
+  "env": {
+    "administrador": {
+      "description": "Admin del bot",
+      "value": ""
+    },
+    "bot_token": {
+      "description": "El token del bot",
+      "value": ""
     }
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-python.git"
+    }
+  ]
 }
