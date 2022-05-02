@@ -607,13 +607,38 @@ def onmessage(update,bot:ObigramClient):
                                    user_info['moodle_repo_id'],proxy=proxy)
              loged = client.login()
              if loged:
-                 files = client.getEvidences()
-                 filesInfo = infos.createFilesMsg(files)
-                 bot.editMessageText(message,filesInfo)
-                 client.logout()
+
+                List = client.getEvidences()
+                List1=List[:45]
+                total=len(List)
+                List2=List[46:]
+                info1 = f'<b>Archivos: {str(total)}</b>\n\n'
+                info = f'<b>Archivos: {str(total)}</b>\n\n'
+                
+                i = 1
+                for item in List1:
+                    info += '<b>/del_'+str(i)+'</b>  /txt_'+str(i)+'\n'
+                    #info += '<b>'+item['name']+':</b>\n'
+                    for file in item['files']:                  
+                        info += '<a href="'+file['directurl']+'">\t'+file['name']+'</a>\n'
+                    info+='\n'
+                    i+=1
+                    bot.editMessageText(message, f'{info}',parse_mode="html")
+                
+                if len(List2)>0:
+                    bot.sendMessage(update.message.chat.id,'Conectando con Lista número 2...')
+                    for item in List2:
+                        
+                        info1 += '<b>/del_'+str(i)+'</b>  /txt_'+str(i)+'\n'
+                        #info1 += '<b>'+item['name']+':</b>\n'
+                        for file in item['files']:                  
+                            info1 += '<a href="'+file['url']+'">\t'+file['name']+'</a>\n'
+                        info1+='\n'
+                        i+=1
+                        bot.editMessageText(message, f'{info1}',parse_mode="html")
              else:
                 bot.editMessageText(message,'⚠️𝙴𝚛𝚛𝚘𝚛 𝚢 𝚙𝚘𝚜𝚒𝚋𝚕𝚎𝚜 𝚌𝚊𝚞𝚜𝚊𝚜🧐\n1-Revise su Cuenta\n2-Servidor Desabilitado: '+client.path)
-        elif '/txt_' in msgText and user_info['cloudtype']=='moodle':
+         elif '/txt_' in msgText and user_info['cloudtype']=='moodle':
              findex = str(msgText).split('_')[1]
              findex = int(findex)
              proxy = ProxyCloud.parse(user_info['proxy'])
